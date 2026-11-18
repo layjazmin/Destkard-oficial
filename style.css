@@ -1337,3 +1337,262 @@ body {
     background: transparent !important;
     color: #d58aff;
 }
+
+
+/* =========================================
+   DESTKARD - RESPONSIVE PARA CELULARES
+========================================= */
+
+@media (max-width: 700px) {
+
+    /* NAVEGACIÓN */
+    .navbar {
+        height: 68px;
+        padding: 0 16px;
+    }
+
+    .brand {
+        font-size: 21px;
+        gap: 6px;
+    }
+
+    .brand-logo {
+        width: 80px;
+        height: 65px;
+        transform: none;
+    }
+
+    .menu-toggle {
+        display: block;
+        margin-left: auto;
+        font-size: 28px;
+    }
+
+    .nav-links {
+        top: 68px;
+        max-height: calc(100vh - 68px);
+        overflow-y: auto;
+    }
+
+    /* PORTADA */
+    .hero,
+    .hero-content {
+        min-height: 100svh;
+    }
+
+    .hero-content {
+        padding: 100px 15px 40px;
+    }
+
+    .logo-container {
+        width: 92vw;
+    }
+
+    .tagline {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        font-size: 17px;
+        gap: 7px;
+        line-height: 1.4;
+    }
+
+    .play-button {
+        font-size: 25px;
+        padding: 13px 28px;
+    }
+
+    .side-text {
+        display: none;
+    }
+
+    /* CADENAS */
+    .chain-left,
+    .chain-right {
+        width: 24vw;
+        max-width: 110px;
+    }
+
+    /* ACCESOS PRINCIPALES */
+    .features {
+        width: 95%;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 30px;
+    }
+
+    .feature-card {
+        min-width: 0;
+    }
+
+    .feature-card img,
+    .features .feature-card:nth-child(n) img {
+        width: 100%;
+        max-width: 145px;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        object-fit: contain;
+    }
+
+    /* MENÚ DESPLEGABLE */
+    .top-nav {
+        top: 68px;
+        gap: 0;
+    }
+
+    .nav-option {
+        width: 100%;
+        font-size: 19px;
+        padding: 14px;
+    }
+
+    .mega-menu {
+        top: 68px;
+        max-height: calc(100vh - 68px);
+        overflow-y: auto;
+        padding: 42px 14px 25px;
+    }
+
+    .mega-panel h2 {
+        font-size: 32px;
+    }
+
+    .mega-close {
+        top: 10px;
+        right: 15px;
+    }
+
+    /* CREADORES */
+    .creator-grid {
+        grid-template-columns: repeat(2, minmax(0, 140px));
+        justify-content: center;
+        gap: 12px;
+    }
+
+    /* INFORMACIÓN */
+    .about-section {
+        min-height: auto;
+        padding: 65px 18px;
+        border-top-width: 24px;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .about-title h2 {
+        font-size: clamp(38px, 11vw, 55px);
+        text-align: center;
+    }
+
+    .about-description {
+        padding: 17px;
+    }
+
+    .about-description p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    /* ASISTENTES */
+    .asistente-destkard {
+        left: 8px;
+        bottom: 10px;
+        gap: 5px;
+        max-width: calc(100vw - 16px);
+    }
+
+    .asistente-destkard img {
+        width: 85px;
+        max-height: 125px;
+    }
+
+    .globo-dialogo {
+        width: min(220px, 58vw);
+        padding: 12px;
+        margin-bottom: 10px;
+        max-height: 38vh;
+        overflow-y: auto;
+    }
+
+    .globo-dialogo h3 {
+        font-size: 18px;
+    }
+
+    .globo-dialogo p {
+        font-size: 13px;
+    }
+
+    .asistente-destkard.derecha {
+        left: auto;
+        right: 8px;
+        flex-direction: row-reverse;
+    }
+
+    /* SECCIONES */
+    .extra-section {
+        min-height: auto;
+        padding: 55px 18px;
+    }
+
+    .extra-section h2 {
+        font-size: 34px;
+    }
+
+    .extra-section p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .creator-credit {
+        font-size: 17px;
+        text-align: center;
+    }
+}
+
+/* CELULARES PEQUEÑOS */
+@media (max-width: 380px) {
+
+    .navbar {
+        padding: 0 10px;
+    }
+
+    .brand {
+        font-size: 18px;
+    }
+
+    .brand-logo {
+        width: 65px;
+    }
+
+    .features {
+        gap: 8px;
+    }
+
+    .feature-card img,
+    .features .feature-card:nth-child(n) img {
+        max-width: 120px;
+    }
+
+    .globo-dialogo {
+        width: min(190px, 57vw);
+    }
+}
+
+/* TABLETS */
+@media (min-width: 701px) and (max-width: 1000px) {
+
+    .about-container {
+        gap: 35px;
+    }
+
+    .about-title h2 {
+        font-size: clamp(48px, 7vw, 76px);
+    }
+
+    .feature-card img {
+        max-width: 180px;
+        height: auto;
+    }
+}
