@@ -1,0 +1,640 @@
+/* =========================================
+   DESTKARD - FICHA DE JK
+   BLANCO / NEGRO / GRISES
+   ESTÉTICA GÓTICA Y ANTIGUA
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&display=swap');
+
+:root {
+    --fondo: #080808;
+    --panel: rgba(20, 20, 20, 0.96);
+    --panel-claro: #292929;
+
+    --rojo: #777777;
+    --rojo-brillante: #ffffff;
+    --dorado: #bdbdbd;
+    --naranja: #eeeeee;
+
+    --texto: #f0f0f0;
+    --texto-secundario: #bcbcbc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    color: var(--texto);
+
+    background:
+        radial-gradient(
+            ellipse at 15% 15%,
+            rgba(255, 255, 255, 0.10),
+            transparent 35%
+        ),
+        radial-gradient(
+            ellipse at 85% 65%,
+            rgba(150, 150, 150, 0.08),
+            transparent 32%
+        ),
+        var(--fondo);
+
+    font-family: "Special Elite", monospace;
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   CONTENIDO GENERAL
+========================================= */
+
+.contenedor {
+    width: min(1180px, 90%);
+    margin: 0 auto;
+    padding: 0 0 70px;
+}
+
+.seccion {
+    min-width: 0;
+}
+
+
+/* =========================================
+   PRESENTACIÓN DEL PERSONAJE
+========================================= */
+
+.presentacion {
+    display: grid;
+
+    grid-template-columns:
+        minmax(300px, 0.9fr)
+        minmax(350px, 1.1fr);
+
+    align-items: center;
+    gap: clamp(30px, 5vw, 70px);
+
+    width: 100vw;
+    min-height: 550px;
+
+    margin-left: calc(50% - 50vw);
+
+    padding: 45px max(5vw, calc((100vw - 1180px) / 2));
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(8, 8, 8, 0.50),
+            rgba(8, 8, 8, 0.25),
+            rgba(8, 8, 8, 0.70)
+        ),
+        url("../imagenes/bannerjk.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border-bottom: 3px solid var(--rojo);
+}
+
+.retrato-marco {
+    position: relative;
+    height: 470px;
+    background: transparent;
+}
+
+.retrato {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center bottom;
+
+    background: transparent;
+}
+
+.retrato-etiqueta {
+    display: none;
+}
+
+
+/* =========================================
+   TEXTOS DE PRESENTACIÓN
+========================================= */
+
+.sobrelinea,
+.etiqueta {
+    color: var(--naranja);
+
+    font-family: "IM Fell English", serif;
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.presentacion-info {
+    min-width: 0;
+}
+
+.titulo-jk {
+    transform: translate(90px);
+    display: block;
+
+    width: 200px;
+    max-width: 100%;
+    height: auto;
+
+    object-fit: contain;
+}
+
+.raya-titulo {
+    width: min(420px, 100%);
+    height: 7px;
+
+    margin: 18px 0 28px;
+
+    background: linear-gradient(
+        90deg,
+        var(--rojo-brillante),
+        var(--dorado),
+        transparent
+    );
+
+    transform: skewX(-28deg);
+}
+
+.dato-origen {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    max-width: 420px;
+    padding: 18px 20px;
+
+    background: var(--panel);
+
+    border-left: 4px solid var(--dorado);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.dato-icono {
+    color: var(--dorado);
+    font-size: 2rem;
+}
+
+.dato-origen p {
+    margin-top: 4px;
+
+    font-family: "IM Fell English", serif;
+    font-size: 1.25rem;
+}
+
+.resumen {
+    max-width: 470px;
+    margin-top: 24px;
+
+    color: var(--texto-secundario);
+
+    font-family: "IM Fell English", serif;
+    font-size: 1.15rem;
+    line-height: 1.9;
+
+    text-align: justify;
+}
+
+
+/* =========================================
+   TÍTULOS Y PANELES
+========================================= */
+
+.titulo-seccion {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    margin-bottom: 15px;
+}
+
+.titulo-seccion h2 {
+    color: var(--dorado);
+
+    font-family: "UnifrakturCook", cursive;
+    font-size: 2.1rem;
+    font-weight: 400;
+
+    letter-spacing: 1px;
+    white-space: nowrap;
+
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+}
+
+.simbolo {
+    color: var(--rojo-brillante);
+    font-size: 1.8rem;
+}
+
+.linea {
+    flex: 1;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        var(--rojo),
+        transparent
+    );
+}
+
+.panel {
+    position: relative;
+
+    padding: clamp(20px, 3vw, 34px);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.08),
+            transparent 55%
+        ),
+        var(--panel);
+
+    border: 1px solid rgba(180, 180, 180, 0.55);
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.panel::after {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 65px;
+    height: 5px;
+
+    background: var(--dorado);
+}
+
+
+/* =========================================
+   LORE
+========================================= */
+
+.lore-seccion {
+    position: relative;
+
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-bottom: 55px;
+
+    padding: 55px max(5vw, calc((100vw - 1180px) / 2));
+
+    background-image:
+        url("../imagenes/fondoexpedientejk.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.lore-panel {
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto;
+    padding: 0;
+
+    background: none;
+    border: none;
+    box-shadow: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lore-panel img {
+    display: block;
+
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* =========================================
+   PERSONALIDAD Y VOCES
+========================================= */
+
+.dos-columnas {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 28px;
+    margin-bottom: 55px;
+}
+
+
+/* =========================================
+   PERSONALIDAD
+========================================= */
+
+.personalidad-seccion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+}
+
+.personalidad-imagen {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.personalidad-imagen img {
+    display: block;
+
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* =========================================
+   VOCES DE JK
+========================================= */
+
+.voces-seccion {
+    margin-bottom: 20px;
+}
+
+.voces-intro {
+    margin-bottom: 20px;
+
+    color: var(--texto-secundario);
+
+    font-family: "IM Fell English", serif;
+    font-size: 1.15rem;
+    line-height: 1.7;
+
+    text-align: justify;
+}
+
+.voz {
+    display: grid;
+
+    grid-template-columns:
+        minmax(170px, 0.7fr)
+        minmax(240px, 1.3fr);
+
+    align-items: center;
+    gap: 20px;
+
+    padding: 15px 0;
+
+    border-top: 1px solid rgba(180, 180, 180, 0.30);
+}
+
+.voz-numero {
+    color: var(--dorado);
+
+    font-family: "UnifrakturCook", cursive;
+    font-size: 1.8rem;
+}
+
+.voz audio {
+    width: 100%;
+    height: 38px;
+
+    accent-color: var(--rojo-brillante);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+    min-height: 75px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    padding: 20px;
+
+    color: var(--rojo-brillante);
+    background: transparent;
+
+    border-top: 2px solid var(--rojo);
+
+    font-family: "IM Fell English", serif;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+.footer-punto {
+    color: var(--dorado);
+}
+
+
+/* =========================================
+   ANIMACIONES
+========================================= */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+.presentacion,
+.seccion,
+.dos-columnas {
+    animation: aparecer 0.7s ease both;
+}
+
+.lore-seccion {
+    animation-delay: 0.08s;
+}
+
+.dos-columnas {
+    animation-delay: 0.16s;
+}
+
+.voces-seccion {
+    animation-delay: 0.24s;
+}
+
+
+/* =========================================
+   BOTÓN VOLVER
+========================================= */
+
+.boton-volver {
+    position: fixed;
+
+    top: 20px;
+    left: 20px;
+
+    z-index: 999999;
+
+    display: block;
+
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.boton-volver img {
+    width: 120px;
+    height: auto;
+
+    display: block;
+
+    border: none;
+    box-shadow: none;
+
+    transition: transform 0.2s ease;
+}
+
+.boton-volver:hover img {
+    transform: scale(1.08);
+}
+
+
+/* =========================================
+   ADAPTACIÓN A PANTALLAS MEDIANAS
+========================================= */
+
+@media (max-width: 850px) {
+
+    .presentacion {
+        grid-template-columns: 1fr;
+    }
+
+    .retrato-marco {
+        width: min(500px, 100%);
+        margin: 0 auto;
+    }
+
+    .presentacion-info {
+        text-align: center;
+    }
+
+    .raya-titulo,
+    .dato-origen {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .resumen {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: justify;
+    }
+
+    .dos-columnas {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================
+   ADAPTACIÓN A CELULARES
+========================================= */
+
+@media (max-width: 560px) {
+
+    .contenedor {
+        width: 92%;
+        padding-top: 20px;
+    }
+
+    .retrato-marco {
+        height: 390px;
+    }
+
+    .titulo-seccion h2 {
+        font-size: 1.8rem;
+    }
+
+    .resumen {
+        font-size: 1.05rem;
+        line-height: 1.8;
+    }
+
+    .voz {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .footer {
+        flex-wrap: wrap;
+        gap: 8px;
+
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+    }
+
+    .boton-volver img {
+        width: 90px;
+    }
+
+}
+
+/* =========================================
+   FONDO DESDE PERSONALIDAD HASTA EL FINAL
+========================================= */
+
+.dos-columnas {
+    background-position: center top;
+    position: relative;
+    z-index: 1;
+
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+
+    padding: 65px max(5vw, calc((100vw - 1180px) / 2));
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.35),
+            rgba(0, 0, 0, 0.65)
+        ),
+        url("../imagenes/fondo-personalidad.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    margin-bottom: 0;
+}

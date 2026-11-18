@@ -1,0 +1,494 @@
+/* =========================================
+   DESTKARD - FICHA DE CANBI
+   NEGRO / ROJO / CARMESÍ
+   ESTÉTICA SALVAJE Y GÓTICA
+========================================= */
+
+:root {
+    --fondo: #100606;
+    --panel: rgba(30, 10, 12, 0.96);
+    --panel-claro: #421317;
+
+    --rojo: #8b1825;
+    --rojo-brillante: #e32b3e;
+    --dorado: #b94a50;
+    --naranja: #d66b70;
+
+    --texto: #f5e5e5;
+    --texto-secundario: #c9aeb0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    color: var(--texto);
+
+    background:
+        radial-gradient(
+            ellipse at 15% 15%,
+            rgba(150, 20, 35, 0.20),
+            transparent 35%
+        ),
+        radial-gradient(
+            ellipse at 85% 65%,
+            rgba(90, 10, 20, 0.18),
+            transparent 32%
+        ),
+        var(--fondo);
+
+    font-family: "Special Elite", monospace;
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   CONTENIDO GENERAL
+========================================= */
+
+.contenedor {
+    width: min(1180px, 90%);
+    margin: 0 auto;
+    padding: 0 0 70px;
+}
+
+.seccion {
+    min-width: 0;
+}
+
+
+/* =========================================
+   PRESENTACIÓN DEL PERSONAJE
+========================================= */
+
+.presentacion {
+    display: grid;
+
+    grid-template-columns:
+        minmax(300px, 0.9fr)
+        minmax(350px, 1.1fr);
+
+    align-items: center;
+    gap: clamp(30px, 5vw, 70px);
+
+    width: 100vw;
+    min-height: 550px;
+
+    margin-left: calc(50% - 50vw);
+
+    padding: 45px max(5vw, calc((100vw - 1180px) / 2));
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(16, 6, 6, 0.45),
+            rgba(16, 6, 6, 0.25),
+            rgba(16, 6, 6, 0.75)
+        ),
+        url("../imagenes/bannercanbi.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border-bottom: 3px solid var(--rojo);
+}
+
+.retrato-marco {
+    position: relative;
+    height: 470px;
+
+    background: transparent;
+}
+
+.retrato {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center bottom;
+
+    background: transparent;
+}
+
+.retrato-etiqueta {
+    display: none;
+}
+
+.sobrelinea,
+.etiqueta {
+    color: var(--naranja);
+
+    font-family: "Special Elite", monospace;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+}
+
+.presentacion-info {
+    min-width: 0;
+}
+
+.titulo-canbi {
+    display: block;
+
+    width: 450px;
+    max-width: 100%;
+    height: auto;
+
+    margin: 8px 0 0;
+
+    object-fit: contain;
+}
+
+.raya-titulo {
+    width: min(420px, 100%);
+    height: 7px;
+
+    margin: 18px 0 28px;
+
+    background: linear-gradient(
+        90deg,
+        var(--rojo-brillante),
+        var(--dorado),
+        transparent
+    );
+
+    transform: skewX(-28deg);
+}
+
+.dato-origen {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    max-width: 420px;
+    padding: 18px 20px;
+
+    background: var(--panel);
+
+    border-left: 4px solid var(--dorado);
+    border-bottom: 1px solid rgba(227, 43, 62, 0.4);
+}
+
+.dato-icono {
+    color: var(--dorado);
+    font-size: 2rem;
+}
+
+.dato-origen p {
+    margin-top: 4px;
+
+    font-family: "Special Elite", monospace;
+    font-size: 1.1rem;
+}
+
+.resumen {
+    max-width: 470px;
+    margin-top: 24px;
+
+    color: var(--texto-secundario);
+
+    font-family: "Special Elite", monospace;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+
+/* =========================================
+   LORE
+========================================= */
+
+.lore-seccion {
+    position: relative;
+
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-bottom: 55px;
+
+    padding: 55px max(5vw, calc((100vw - 1180px) / 2));
+
+    background-image:
+        url("../imagenes/fondoexpedientecanbi.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.lore-panel {
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto;
+    padding: 0;
+
+    background: none;
+    border: none;
+    box-shadow: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lore-panel img {
+    display: block;
+
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* =========================================
+   PERSONALIDAD
+========================================= */
+
+.dos-columnas {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 28px;
+    margin-bottom: 55px;
+}
+
+.personalidad-seccion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+}
+
+.personalidad-imagen {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.personalidad-imagen img {
+    display: block;
+
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+    min-height: 75px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    padding: 20px;
+
+    color: var(--rojo-brillante);
+    background: #100606;
+
+    border-top: 2px solid var(--rojo);
+
+    font-family: "Grenze Gotisch", serif;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+.footer-punto {
+    color: var(--dorado);
+}
+
+
+/* =========================================
+   ANIMACIONES
+========================================= */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+.presentacion,
+.seccion,
+.dos-columnas {
+    animation: aparecer 0.7s ease both;
+}
+
+.lore-seccion {
+    animation-delay: 0.08s;
+}
+
+.dos-columnas {
+    animation-delay: 0.16s;
+}
+
+
+/* =========================================
+   BOTÓN VOLVER
+========================================= */
+
+.boton-volver {
+    position: fixed;
+
+    top: 20px;
+    left: 20px;
+
+    z-index: 999999;
+
+    display: block;
+
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.boton-volver img {
+    width: 120px;
+    height: auto;
+
+    display: block;
+
+    border: none;
+    box-shadow: none;
+
+    transition: transform 0.2s ease;
+}
+
+.boton-volver:hover img {
+    transform: scale(1.08);
+}
+
+
+/* =========================================
+   ADAPTACIÓN A PANTALLAS MEDIANAS
+========================================= */
+
+@media (max-width: 850px) {
+
+    .presentacion {
+        grid-template-columns: 1fr;
+    }
+
+    .retrato-marco {
+        width: min(500px, 100%);
+        margin: 0 auto;
+    }
+
+    .presentacion-info {
+        text-align: center;
+    }
+
+    .raya-titulo,
+    .dato-origen {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .resumen {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .dos-columnas {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================
+   ADAPTACIÓN A CELULARES
+========================================= */
+
+@media (max-width: 560px) {
+
+    .contenedor {
+        width: 92%;
+        padding-top: 20px;
+    }
+
+    .retrato-marco {
+        height: 390px;
+    }
+
+    .footer {
+        flex-wrap: wrap;
+        gap: 8px;
+
+        font-size: 0.95rem;
+        letter-spacing: 2px;
+    }
+
+    .boton-volver img {
+        width: 90px;
+    }
+
+}
+
+/* =========================================
+   FONDO DESDE PERSONALIDAD HASTA EL FINAL
+========================================= */
+
+.fondo-inferior {
+    position: relative;
+
+    width: 100vw;
+    min-height: 100vh;
+
+    margin-left: calc(50% - 50vw);
+
+    padding: 60px 5vw 0;
+
+    background-image: url("../imagenes/fondopersonalidadcanbi.jpeg");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/* PERSONALIDAD */
+
+.fondo-inferior .dos-columnas {
+    width: min(1180px, 100%);
+    margin: 0 auto 55px;
+}
+
+/* FOOTER */
+
+.fondo-inferior .footer {
+    width: 100%;
+    margin-top: 40px;
+    background: transparent;
+}

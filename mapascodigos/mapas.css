@@ -1,0 +1,546 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --fondo: #090711;
+    --panel: #100d1b;
+    --violeta: #7928ff;
+    --violeta-claro: #a45cff;
+    --texto: #f4f0ff;
+    --texto-secundario: #aaa3c4;
+}
+
+body {
+    background-image: url("../img/mapas/fondo.png");
+    background-size: 100% auto;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: var(--fondo);
+}
+
+/* NAVEGACIÓN */
+
+.navbar {
+    height: 65px;
+    width: 100%;
+    padding: 0 5%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-image: url("../img/mapas/fuego.png");
+    background-size: 100% auto;
+    background-position: center 1%;
+    background-repeat: no-repeat;
+
+    border-bottom: none;
+    position: relative;
+    z-index: 10;
+}
+
+/* CONTENEDOR */
+
+.contenedor {
+    width: 90%;
+    max-width: 1900px;
+    margin: 50px auto;
+}
+
+/* MAPA PRINCIPAL */
+
+.mapa-principal {
+    display: grid;
+    grid-template-columns: minmax(0, 2.1fr) minmax(280px, .85fr);
+    gap: 50px;
+    align-items: start;
+}
+
+/* GALERÍA */
+
+.galeria {
+    width: 100%;
+    min-width: 0;
+}
+
+.imagen-contenedor {
+    width: 100%;
+    height: 535px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    background: transparent;
+}
+
+/* FLECHAS */
+
+.flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 58px;
+    height: 58px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(8,6,17,.85);
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+    transition: .3s;
+    z-index: 11;
+}
+
+.flecha:hover {
+    background: var(--violeta);
+    box-shadow: 0 0 20px rgba(121,40,255,.6);
+    transform: translateY(-50%) scale(1.12);
+}
+
+.flecha-izquierda {
+    left: 18px;
+}
+
+.flecha-derecha {
+    right: 18px;
+}
+
+/* CONTADOR */
+
+.contador {
+    position: absolute;
+    bottom: 18px;
+    left: 18px;
+    padding: 8px 13px;
+    border-radius: 7px;
+    background: rgba(8,6,17,.85);
+    font-size: 15px;
+    z-index: 11;
+    color: white;
+}
+
+/* MINIATURAS */
+
+.miniaturas {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.miniatura {
+    height: 110px;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    border-radius: 7px;
+    padding: 0;
+    background: #171321;
+    cursor: pointer;
+    transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+
+.miniatura img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.miniatura span {
+    position: absolute;
+    bottom: 7px;
+    left: 7px;
+    padding: 4px 7px;
+    color: white;
+    background: rgba(0,0,0,.8);
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.miniatura:hover {
+    border-color: var(--violeta-claro);
+    transform: translateY(-5px) scale(1.03);
+}
+
+.miniatura.activa {
+    border-color: var(--violeta);
+    box-shadow: 0 0 12px rgba(121,40,255,.5);
+    transform: scale(1.04);
+}
+
+/* INFORMACIÓN */
+
+.informacion {
+    padding-top: 5px;
+    position: relative;
+    min-height: 550px;
+}
+
+.linea-violeta {
+    width: 120px;
+    height: 4px;
+    background: var(--violeta);
+    margin: 23px auto;
+    position: relative;
+    top: 20px;
+}
+
+.decoracion-corona {
+    color: #7021e9;
+    font-size: 85px;
+    text-align: right;
+    margin-top: 35px;
+    opacity: .75;
+}
+
+/* OTROS MAPAS */
+
+.otros-mapas {
+    border-top: 1px solid rgba(255,255,255,.1);
+    margin-top: 35px;
+    padding-top: 20px;
+}
+
+.titulo-seccion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.titulo-seccion h2 {
+    color: var(--violeta-claro);
+    font-size: 21px;
+}
+
+.controles-mapas {
+    display: flex;
+    gap: 5px;
+}
+
+.controles-mapas button {
+    width: 42px;
+    height: 40px;
+    border: 1px solid #342b48;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    font-size: 17px;
+    transition: .3s;
+}
+
+.controles-mapas button:hover {
+    background: var(--violeta);
+    transform: scale(1.1);
+}
+
+/* TARJETAS */
+
+.tarjetas-mapas {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.tarjeta-mapa {
+    position: relative;
+    height: 190px;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,.08);
+    cursor: pointer;
+    background: #171321;
+    transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+
+.tarjeta-mapa img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .4s;
+}
+
+.tarjeta-mapa:hover img {
+    transform: scale(1.08);
+}
+
+.tarjeta-mapa:hover {
+    transform: translateY(-6px);
+}
+
+.tarjeta-mapa::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(transparent, #9b5aacf2);
+}
+
+.tarjeta-mapa h3 {
+    position: absolute;
+    z-index: 2;
+    bottom: 18px;
+    left: 18px;
+    font-size: 23px;
+    color: white;
+}
+
+.tarjeta-mapa.seleccionada {
+    border: 2px solid var(--violeta);
+    box-shadow: 0 0 15px rgba(121,40,255,.4);
+}
+
+/* BOTÓN VOLVER */
+
+.boton-volver {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    position: relative;
+    left: -25px;
+    top: -130px;
+    transition: transform .3s ease, filter .3s ease;
+}
+
+.boton-volver img {
+    width: 150px;
+    height: auto;
+    object-fit: contain;
+    position: relative;
+    left: 20px;
+}
+
+.boton-volver:hover {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 12px #a45cff);
+}
+
+/* ANIMACIONES DE LA GALERÍA */
+
+.imagen-contenedor > img {
+    will-change: transform, opacity;
+}
+
+.imagen-contenedor > img.entra-derecha {
+    animation: entrarDesdeDerecha .55s ease both;
+}
+
+.imagen-contenedor > img.entra-izquierda {
+    animation: entrarDesdeIzquierda .55s ease both;
+}
+
+@keyframes entrarDesdeDerecha {
+    from {
+        opacity: 0;
+        transform: translateX(65px) scale(1.06);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes entrarDesdeIzquierda {
+    from {
+        opacity: 0;
+        transform: translateX(-65px) scale(1.06);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+/* INFORMACIÓN DEL MAPA */
+
+.informacion.animar-info #nombreMapa {
+    animation: aparecerInfo .45s ease both;
+}
+
+.informacion.animar-info #descripcionMapa {
+    animation: aparecerInfo .55s ease .08s both;
+}
+
+.informacion.animar-info .linea-violeta {
+    animation: crecerLinea .5s ease both;
+}
+
+.informacion.animar-info .caracteristica:nth-child(1) {
+    animation: aparecerInfo .45s ease .12s both;
+}
+
+.informacion.animar-info .caracteristica:nth-child(2) {
+    animation: aparecerInfo .45s ease .22s both;
+}
+
+.informacion.animar-info .caracteristica:nth-child(3) {
+    animation: aparecerInfo .45s ease .32s both;
+}
+
+@keyframes aparecerInfo {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes crecerLinea {
+    from {
+        opacity: 0;
+        transform: scaleX(0);
+        transform-origin: left;
+    }
+    to {
+        opacity: 1;
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+}
+
+/* RUIDO BLANCO Y PANTALLA */
+
+.ruido-transicion {
+    position: absolute;
+    left: 21%;
+    top: 23%;
+    width: 61%;
+    height: 62%;
+    object-fit: cover;
+    z-index: 5;
+    opacity: 0;
+    display: none;
+    pointer-events: none;
+    filter: grayscale(1) contrast(1.8) brightness(1.2);
+}
+
+.ruido-transicion.activo {
+    display: block;
+    animation: interferencia .3s steps(2, end) both;
+}
+
+@keyframes interferencia {
+    0% { opacity: 1; transform: translate(0, 0); filter: grayscale(1) contrast(2.5) brightness(1.5); }
+    20% { opacity: 1; transform: translate(4px, -3px); filter: grayscale(1) contrast(3) brightness(.8); }
+    40% { opacity: 1; transform: translate(5px, 0); filter: grayscale(1) contrast(3.5) brightness(1.5); }
+    60% { opacity: 1; transform: translate(2px, 3px); filter: grayscale(1) contrast(4) brightness(2); }
+    100% { opacity: 0; transform: translate(0, 0); }
+}
+
+.nombre-mapa-imagen {
+    width: 300px;
+    height: 100px;
+    object-fit: contain;
+    object-position: left center;
+    position: relative;
+    top: 50px;
+    left: 25px;
+}
+
+.marco-mapa {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    z-index: 10;
+    pointer-events: none;
+}
+
+#imagenPrincipal {
+    position: absolute;
+    left: 21%;
+    top: 23%;
+    width: 61%;
+    height: 62%;
+    object-fit: cover;
+    z-index: 2;
+}
+
+/* PANEL GLASSMORPHISM */
+
+.panel-informacion {
+    width: 100%;
+    padding: 25px;
+    background: rgba(15, 12, 30, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-left: 4px solid #a45cff;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.panel-informacion p {
+    color: #ffffff;
+    font-size: 19px;
+    line-height: 1.65;
+    max-width: 100%;
+}
+
+.panel-informacion .caracteristicas {
+    margin-top: 35px;
+    gap: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.caracteristica {
+    display: grid;
+    grid-template-columns: 30px 1fr 1fr;
+    align-items: center;
+    gap: 10px;
+    font-size: 17px;
+}
+
+.panel-informacion .titulo-caracteristica,
+.panel-informacion .caracteristica > span:last-child {
+    color: #ffffff;
+}
+
+.panel-informacion .icono {
+    color: #c18aff;
+    font-size: 24px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 950px) {
+    .mapa-principal {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+    .imagen-contenedor {
+        height: 450px;
+    }
+    .informacion {
+        min-height: auto;
+    }
+    .decoracion-corona {
+        display: none;
+    }
+    .tarjetas-mapas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .imagen-contenedor {
+        height: 270px;
+    }
+    .informacion h1 {
+        font-size: 36px;
+    }
+    .tarjetas-mapas {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    .tarjeta-mapa {
+        height: 125px;
+    }
+}

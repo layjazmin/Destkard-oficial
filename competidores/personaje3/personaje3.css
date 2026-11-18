@@ -1,0 +1,593 @@
+/* =========================================
+   DESTKARD - FICHA DE NOVA
+   NEGRO / CELESTE / AMARILLO
+   ESTÉTICA MARCIANA Y TECNOLÓGICA
+========================================= */
+
+:root {
+    --fondo: #080d16;
+    --panel: rgba(13, 25, 38, 0.96);
+    --panel-claro: #1b3445;
+
+    --rojo: #267d9b;
+    --rojo-brillante: #55dafa;
+    --dorado: #f4d34e;
+    --naranja: #8ce6f4;
+
+    --texto: #e3f7ff;
+    --texto-secundario: #b6d1df;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    color: var(--texto);
+
+    background:
+        radial-gradient(
+            ellipse at 15% 15%,
+            rgba(40, 178, 220, 0.18),
+            transparent 35%
+        ),
+        radial-gradient(
+            ellipse at 85% 65%,
+            rgba(244, 211, 78, 0.10),
+            transparent 32%
+        ),
+        var(--fondo);
+
+    font-family: "Special Elite", monospace;
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   CONTENIDO GENERAL
+========================================= */
+
+.contenedor {
+    width: min(1180px, 90%);
+    margin: 0 auto;
+    padding: 0 0 70px;
+}
+
+.seccion {
+    min-width: 0;
+}
+
+
+/* =========================================
+   PRESENTACIÓN DEL PERSONAJE
+========================================= */
+
+.presentacion {
+    display: grid;
+
+    grid-template-columns:
+        minmax(300px, 0.9fr)
+        minmax(350px, 1.1fr);
+
+    align-items: center;
+    gap: clamp(30px, 5vw, 70px);
+
+    width: 100vw;
+    min-height: 550px;
+
+    margin-left: calc(50% - 50vw);
+
+    padding: 45px max(5vw, calc((100vw - 1180px) / 2));
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(8, 13, 22, 0.45),
+            rgba(8, 13, 22, 0.25),
+            rgba(8, 13, 22, 0.65)
+        ),
+        url("../imagenes/bannernova.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border-bottom: 3px solid var(--rojo);
+}
+
+.retrato-marco {
+    position: relative;
+    height: 470px;
+
+    background: transparent;
+}
+
+.retrato {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center bottom;
+
+    background: transparent;
+}
+
+.retrato-etiqueta {
+    display: none;
+}
+
+.sobrelinea,
+.etiqueta {
+    color: var(--naranja);
+
+    font-family: "Special Elite", monospace;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+}
+
+.presentacion-info {
+    min-width: 0;
+}
+
+.titulo-nova {
+    display: block;
+
+    width: 450px;
+    max-width: 100%;
+    height: auto;
+
+    margin: 8px 0 0;
+
+    object-fit: contain;
+}
+
+.raya-titulo {
+    width: min(420px, 100%);
+    height: 7px;
+
+    margin: 18px 0 28px;
+
+    background: linear-gradient(
+        90deg,
+        var(--rojo-brillante),
+        var(--dorado),
+        transparent
+    );
+
+    transform: skewX(-28deg);
+}
+
+.dato-origen {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    max-width: 420px;
+    padding: 18px 20px;
+
+    background: var(--panel);
+
+    border-left: 4px solid var(--dorado);
+    border-bottom: 1px solid rgba(85, 218, 250, 0.4);
+}
+
+.dato-icono {
+    color: var(--dorado);
+    font-size: 2rem;
+}
+
+.dato-origen p {
+    margin-top: 4px;
+
+    font-family: "Special Elite", monospace;
+    font-size: 1.1rem;
+}
+
+.resumen {
+    max-width: 470px;
+    margin-top: 24px;
+
+    color: var(--texto-secundario);
+
+    font-family: "Special Elite", monospace;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   TÍTULOS Y PANELES
+========================================= */
+
+.titulo-seccion {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    margin-bottom: 15px;
+}
+
+.titulo-seccion h2 {
+    color: var(--dorado);
+
+    font-family: "Special Elite", monospace;
+    font-size: 1.8rem;
+    font-weight: 400;
+
+    letter-spacing: 2px;
+    white-space: nowrap;
+
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+}
+
+.simbolo {
+    color: var(--rojo-brillante);
+    font-size: 1.8rem;
+}
+
+.linea {
+    flex: 1;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        var(--rojo),
+        transparent
+    );
+}
+
+.panel {
+    position: relative;
+
+    padding: clamp(20px, 3vw, 34px);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(40, 178, 220, 0.10),
+            transparent 55%
+        ),
+        var(--panel);
+
+    border: 1px solid rgba(38, 125, 155, 0.75);
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.panel::after {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 65px;
+    height: 5px;
+
+    background: var(--dorado);
+}
+
+
+/* =========================================
+   LORE
+========================================= */
+
+.lore-seccion {
+    position: relative;
+
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-bottom: 55px;
+
+    padding: 55px max(5vw, calc((100vw - 1180px) / 2));
+
+    background-image:
+        url("../imagenes/expedientenova.png"); /* O la ruta correspondiente a fondoexpedientenova.png si es un archivo aparte */
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.lore-panel {
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto;
+    padding: 0;
+
+    background: none;
+    border: none;
+    box-shadow: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lore-panel img {
+    display: block;
+
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* =========================================
+   PERSONALIDAD Y VOCES
+========================================= */
+
+.dos-columnas {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 28px;
+    margin-bottom: 55px;
+}
+
+
+/* =========================================
+   PERSONALIDAD
+========================================= */
+
+.personalidad-seccion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+}
+
+.personalidad-imagen {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.personalidad-imagen img {
+    display: block;
+
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* =========================================
+   VOCES DE NOVA
+========================================= */
+
+.voces-seccion {
+    margin-bottom: 20px;
+}
+
+.voces-intro {
+    margin-bottom: 20px;
+
+    color: var(--texto-secundario);
+    font-family: "Special Elite", monospace;
+}
+
+.voz {
+    display: grid;
+
+    grid-template-columns:
+        minmax(170px, 0.7fr)
+        minmax(240px, 1.3fr);
+
+    align-items: center;
+    gap: 20px;
+
+    padding: 15px 0;
+
+    border-top: 1px solid rgba(38, 125, 155, 0.35);
+}
+
+.voz-numero {
+    color: var(--dorado);
+
+    font-family: "UnifrakturCook", cursive;
+    font-size: 1.5rem;
+}
+
+.voz audio {
+    width: 100%;
+    height: 38px;
+
+    accent-color: var(--rojo-brillante);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+    min-height: 75px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    padding: 20px;
+
+    color: var(--rojo-brillante);
+    background: #080d16;
+
+    border-top: 2px solid var(--rojo);
+
+    font-family: "Special Elite", monospace;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-align: center;
+}
+
+.footer-punto {
+    color: var(--dorado);
+}
+
+
+/* =========================================
+   ANIMACIONES
+========================================= */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+.presentacion,
+.seccion,
+.dos-columnas {
+    animation: aparecer 0.7s ease both;
+}
+
+.lore-seccion {
+    animation-delay: 0.08s;
+}
+
+.dos-columnas {
+    animation-delay: 0.16s;
+}
+
+.voces-seccion {
+    animation-delay: 0.24s;
+}
+
+
+/* =========================================
+   BOTÓN VOLVER
+========================================= */
+
+.boton-volver {
+    position: fixed;
+
+    top: 20px;
+    left: 20px;
+
+    z-index: 999999;
+
+    display: block;
+
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.boton-volver img {
+    width: 120px;
+    height: auto;
+
+    display: block;
+
+    border: none;
+    box-shadow: none;
+
+    transition: transform 0.2s ease;
+}
+
+.boton-volver:hover img {
+    transform: scale(1.08);
+}
+
+
+/* =========================================
+   ADAPTACIÓN A PANTALLAS MEDIANAS
+========================================= */
+
+@media (max-width: 850px) {
+
+    .presentacion {
+        grid-template-columns: 1fr;
+    }
+
+    .retrato-marco {
+        width: min(500px, 100%);
+        margin: 0 auto;
+    }
+
+    .presentacion-info {
+        text-align: center;
+    }
+
+    .raya-titulo,
+    .dato-origen {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .resumen {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .dos-columnas {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================
+   ADAPTACIÓN A CELULARES
+========================================= */
+
+@media (max-width: 560px) {
+
+    .contenedor {
+        width: 92%;
+        padding-top: 20px;
+    }
+
+    .retrato-marco {
+        height: 390px;
+    }
+
+    .titulo-seccion h2 {
+        font-size: 1.4rem;
+    }
+
+    .voz {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .footer {
+        flex-wrap: wrap;
+        gap: 8px;
+
+        font-size: 0.78rem;
+        letter-spacing: 2px;
+    }
+
+    .boton-volver img {
+        width: 90px;
+    }
+
+}

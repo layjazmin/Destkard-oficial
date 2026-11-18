@@ -1,0 +1,832 @@
+/* =========================================
+   DESKARD - FICHA DE FIGHT
+   ARCADE PIXEL ART / NEGRO / CELESTE / BLANCO
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+:root {
+    --fondo: #070b10;
+    --panel: rgba(13, 26, 39, 0.97);
+    --panel-claro: #172c3c;
+
+    --rojo: #4c91b8;
+    --rojo-brillante: #79d5f5;
+    --dorado: #e8f8ff;
+    --naranja: #a8e5fa;
+
+    --texto: #e9f7ff;
+    --texto-secundario: #b9d5e5;
+
+    /* FUENTES ARCADE */
+    --font-arcade: "Press Start 2P", monospace;
+    --font-retro: "VT323", monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    color: var(--texto);
+
+    background:
+        radial-gradient(
+            ellipse at 15% 15%,
+            rgba(75, 165, 210, 0.18),
+            transparent 35%
+        ),
+        radial-gradient(
+            ellipse at 85% 65%,
+            rgba(65, 120, 160, 0.16),
+            transparent 32%
+        ),
+        var(--fondo);
+
+    font-family: var(--font-retro);
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   CONTENIDO GENERAL
+========================================= */
+
+.contenedor {
+    width: min(1180px, 90%);
+    margin: 0 auto;
+    padding: 0 0 70px;
+}
+
+.seccion {
+    min-width: 0;
+}
+
+
+/* =========================================
+   PRESENTACIÓN DEL PERSONAJE
+========================================= */
+
+.presentacion {
+    display: grid;
+
+    grid-template-columns:
+        minmax(300px, 0.9fr)
+        minmax(350px, 1.1fr);
+
+    align-items: center;
+    gap: clamp(30px, 5vw, 70px);
+
+    width: 110vw;
+    min-height: 200px;
+
+    margin-left: calc(50% - 50vw);
+
+    padding: 45px max(5vw, calc((100vw - 1180px) / 2));
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(7, 11, 16, 0.48),
+            rgba(7, 11, 16, 0.25),
+            rgba(7, 11, 16, 0.70)
+        ),
+        url("../imagenes/bannerfight.png");
+
+    background-size: 110% auto;
+    background-position: -200px center;
+    background-repeat: no-repeat;
+
+    border-bottom: 3px solid var(--rojo);
+}
+
+.retrato-marco {
+    position: relative;
+    height: 470px;
+    background: transparent;
+}
+
+.retrato {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center bottom;
+
+    background: transparent;
+}
+
+.retrato-etiqueta {
+    display: none;
+}
+
+.sobrelinea,
+.etiqueta {
+    color: var(--naranja);
+
+    font-family: var(--font-retro);
+    font-size: 1.4rem;
+    letter-spacing: 3px;
+}
+
+.presentacion-info {
+    min-width: 0;
+}
+
+.titulo-fight {
+    display: block;
+
+    width: 450px;
+    max-width: 100%;
+    height: auto;
+
+    margin: 8px 0 0;
+
+    object-fit: contain;
+}
+
+.raya-titulo {
+    width: min(420px, 100%);
+    height: 7px;
+
+    margin: 18px 0 28px;
+
+    background: linear-gradient(
+        90deg,
+        var(--rojo-brillante),
+        var(--dorado),
+        transparent
+    );
+
+    transform: skewX(-28deg);
+}
+
+.dato-origen {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    max-width: 420px;
+    padding: 18px 20px;
+
+    background: var(--panel);
+
+    border-left: 4px solid var(--dorado);
+    border-bottom: 1px solid rgba(121, 213, 245, 0.4);
+}
+
+.dato-icono {
+    color: var(--dorado);
+    font-size: 2rem;
+}
+
+.dato-origen p {
+    margin-top: 4px;
+
+    font-family: var(--font-retro);
+    font-size: 1.5rem;
+}
+
+.resumen {
+    max-width: 470px;
+    margin-top: 24px;
+
+    color: var(--texto-secundario);
+
+    font-family: var(--font-retro);
+    font-size: 1.5rem;
+    line-height: 1.35;
+}
+
+
+/* =========================================
+   TÍTULOS Y PANELES
+========================================= */
+
+.titulo-seccion {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    margin-bottom: 15px;
+}
+
+.titulo-seccion h2 {
+    color: var(--dorado);
+
+    font-family: var(--font-arcade);
+    font-size: 1rem;
+    font-weight: 400;
+
+    line-height: 1.8;
+    letter-spacing: 1px;
+    white-space: nowrap;
+
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+}
+
+.simbolo {
+    color: var(--rojo-brillante);
+    font-size: 1.8rem;
+}
+
+.linea {
+    flex: 1;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        var(--rojo),
+        transparent
+    );
+}
+
+.panel {
+    position: relative;
+
+    padding: clamp(20px, 3vw, 34px);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(75, 165, 210, 0.10),
+            transparent 55%
+        ),
+        var(--panel);
+
+    border: 1px solid rgba(76, 145, 184, 0.75);
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.panel::after {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 65px;
+    height: 5px;
+
+    background: var(--dorado);
+}
+
+
+/* =========================================
+   LORE
+========================================= */
+
+.lore-seccion {
+    position: relative;
+
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-bottom: 55px;
+
+    padding: 55px max(5vw, calc((100vw - 1180px) / 2));
+
+    background-image:
+        linear-gradient(
+            rgba(7, 11, 16, 0.40),
+            rgba(7, 11, 16, 0.40)
+        ),
+        url("../imagenes/fondoexpedientefight.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.lore-panel {
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto;
+    padding: 0;
+
+    background: none;
+    border: none;
+    box-shadow: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lore-panel img {
+    display: block;
+
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* =========================================
+   PERSONALIDAD Y VOCES
+========================================= */
+
+.dos-columnas {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 28px;
+    margin-bottom: 55px;
+}
+
+.personalidad-panel {
+    height: calc(100% - 55px);
+}
+
+.personalidad-panel p {
+    margin-bottom: 17px;
+
+    color: var(--texto-secundario);
+
+    font-family: var(--font-retro);
+    font-size: 1.4rem;
+    line-height: 1.4;
+}
+
+.personalidad-panel p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================
+   OBJETIVO Y DISEÑO
+========================================= */
+
+.objetivo {
+    margin-top: 25px;
+    padding: 18px;
+
+    background: rgba(75, 165, 210, 0.10);
+
+    border-left: 3px solid var(--dorado);
+}
+
+.objetivo p {
+    margin-top: 10px;
+    margin-bottom: 0;
+
+    font-family: var(--font-retro);
+    font-size: 1.4rem;
+}
+
+.objetivo p + p {
+    margin-top: 12px;
+}
+
+
+/* =========================================
+   VOCES DE FIGHT
+========================================= */
+
+.voces-seccion {
+    margin-bottom: 20px;
+    min-width: 0;
+}
+
+.voces-intro {
+    margin-bottom: 20px;
+
+    color: var(--texto-secundario);
+    font-family: var(--font-retro);
+    font-size: 1.4rem;
+}
+
+.voces-lista {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 0 18px;
+}
+
+.voz {
+    display: grid;
+
+    grid-template-columns: 32px minmax(0, 1fr);
+
+    align-items: center;
+    gap: 9px;
+
+    min-width: 0;
+    padding: 13px 0;
+
+    border-top: 1px solid rgba(76, 145, 184, 0.35);
+}
+
+.voz-numero {
+    color: var(--dorado);
+
+    font-family: var(--font-arcade);
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.voz audio {
+    display: block;
+
+    width: 100%;
+    min-width: 0;
+    height: 38px;
+
+    accent-color: var(--rojo-brillante);
+}
+
+
+/* =========================================
+   HABILIDADES
+========================================= */
+
+.habilidades-seccion {
+    margin-bottom: 55px;
+}
+
+.habilidades-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.habilidad {
+    display: grid;
+
+    grid-template-columns: 85px 1fr;
+
+    gap: 25px;
+    align-items: start;
+}
+
+.habilidad-numero {
+    display: grid;
+    place-items: center;
+
+    width: 75px;
+    height: 75px;
+
+    color: var(--dorado);
+
+    background: #070b10;
+
+    border: 2px solid var(--rojo);
+
+    font-family: var(--font-arcade);
+    font-size: 1rem;
+}
+
+.habilidad-info {
+    min-width: 0;
+}
+
+.habilidad-info h3 {
+    margin-bottom: 15px;
+
+    color: var(--dorado);
+
+    font-family: var(--font-arcade);
+    font-size: 1rem;
+    font-weight: 400;
+
+    letter-spacing: 1px;
+    line-height: 1.8;
+}
+
+.habilidad-info p {
+    margin-bottom: 13px;
+
+    color: var(--texto-secundario);
+
+    font-family: var(--font-retro);
+    font-size: 1.4rem;
+    line-height: 1.4;
+}
+
+.habilidad-datos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    margin-top: 20px;
+}
+
+.habilidad-datos span {
+    padding: 9px 15px;
+
+    color: var(--dorado);
+
+    background: rgba(76, 145, 184, 0.15);
+
+    border: 1px solid var(--rojo);
+
+    font-family: var(--font-retro);
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+}
+
+.separador-habilidad {
+    width: 100%;
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--rojo),
+        transparent
+    );
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+    min-height: 75px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    padding: 20px;
+
+    color: var(--rojo-brillante);
+    background: #070b10;
+
+    border-top: 2px solid var(--rojo);
+
+    font-family: var(--font-arcade);
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.footer-punto {
+    color: var(--dorado);
+}
+
+
+/* =========================================
+   ANIMACIONES
+========================================= */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+.presentacion,
+.seccion,
+.dos-columnas {
+    animation: aparecer 0.7s ease both;
+}
+
+.lore-seccion {
+    animation-delay: 0.08s;
+}
+
+.dos-columnas {
+    animation-delay: 0.16s;
+}
+
+.voces-seccion {
+    animation-delay: 0.24s;
+}
+
+.habilidades-seccion {
+    animation-delay: 0.30s;
+}
+
+
+/* =========================================
+   BOTÓN VOLVER
+========================================= */
+
+.boton-volver {
+    position: fixed;
+
+    top: 20px;
+    left: 20px;
+
+    z-index: 999999;
+
+    display: block;
+
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.boton-volver img {
+    width: 120px;
+    height: auto;
+
+    display: block;
+
+    border: none;
+    box-shadow: none;
+
+    transition: transform 0.2s ease;
+}
+
+.boton-volver:hover img {
+    transform: scale(1.08);
+}
+
+
+/* =========================================
+   ADAPTACIÓN A PANTALLAS MEDIANAS
+========================================= */
+
+@media (max-width: 850px) {
+
+    .presentacion {
+        grid-template-columns: 1fr;
+    }
+
+    .retrato-marco {
+        width: min(500px, 100%);
+        margin: 0 auto;
+    }
+
+    .presentacion-info {
+        text-align: center;
+    }
+
+    .raya-titulo,
+    .dato-origen {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .resumen {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .dos-columnas {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================
+   ADAPTACIÓN A CELULARES
+========================================= */
+
+@media (max-width: 560px) {
+
+    .contenedor {
+        width: 92%;
+        padding-top: 20px;
+    }
+
+    .retrato-marco {
+        height: 390px;
+    }
+
+    .titulo-seccion h2 {
+        font-size: 0.75rem;
+    }
+
+    .voces-lista {
+        grid-template-columns: 1fr;
+    }
+
+    .voz {
+        grid-template-columns: 38px minmax(0, 1fr);
+    }
+
+    .habilidad {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .habilidad-numero {
+        width: 60px;
+        height: 60px;
+        font-size: 0.8rem;
+    }
+
+    .habilidad-info h3 {
+        font-size: 0.8rem;
+    }
+
+    .footer {
+        flex-wrap: wrap;
+        gap: 8px;
+
+        font-size: 0.5rem;
+        letter-spacing: 1px;
+    }
+
+    .boton-volver img {
+        width: 90px;
+    }
+
+}
+
+
+/* =========================================
+   IMAGEN DE PERSONALIDAD
+========================================= */
+
+.personalidad-seccion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+}
+
+.personalidad-imagen {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.personalidad-imagen img {
+    display: block;
+
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+
+    object-fit: contain;
+}
+
+/* =========================================
+   FONDO ARCADE
+   PERSONALIDAD HASTA FOOTER
+========================================= */
+
+.fondo-arcade {
+    position: relative;
+
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+
+    padding: 55px max(5vw, calc((100vw - 1180px) / 2)) 0;
+
+    background-image:
+        linear-gradient(
+            rgba(7, 11, 16, 0.72),
+            rgba(7, 11, 16, 0.78)
+        ),
+        url("../imagenes/fondoarcadefight.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+
+.fondo-arcade > .dos-columnas,
+.fondo-arcade > .habilidades-seccion {
+    width: 100%;
+    max-width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fondo-arcade .footer {
+    width: 100%;
+    margin-top: 55px;
+    background: rgba(7, 11, 16, 0.75);
+}
+
+@media (max-width: 560px) {
+
+    .fondo-arcade {
+        padding-top: 35px;
+    }
+
+}
